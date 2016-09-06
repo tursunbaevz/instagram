@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="circular">
+      <%= image_tag  post_url(:medium), class:'img-responsive' %>       
+  </div>
+</div>
+
+<% @posts.each do |post| %>
+  <div class="form-wrapper">
+    <div class="posts-wrapper">
+        <div class="image center-block">  
+   		   <%= image_tag  post.image.url(:medium), class:'img-responsive' %>
+        </div>    
+ 			    <br>			   
+	     </div>
+       <div class="post-description">
+        <%= post.description %>
+	     </div>
+  </div>
+<% end %>
+ 
+
+
+
+
+
+
+
