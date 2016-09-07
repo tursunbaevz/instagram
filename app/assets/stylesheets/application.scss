@@ -82,10 +82,14 @@ body {
   margin-bottom: 40px;
 }
 .circular {
-  border: 1px solid #d9d9d9;
-    height: 200px;
-    width: 200px;
-    text-align: center;
-    border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
   background: url(http://link-to-your/image.jpg) no-repeat;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
   }
+

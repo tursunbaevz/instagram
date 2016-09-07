@@ -24,11 +24,13 @@
               <ul class="nav navbar-nav">
               </ul>
               <ul class="navbar-nav navbar-right"> 
-                <li><%= link_to 'New Post', new_post_path, class: 'navbar-brand' %></li> 
                 <% if user_signed_in? %>
+                 <li><%= link_to 'My Mrofile', users_path, class: 'navbar-brand' %></li> 
+                <li><%= link_to 'New Post', new_post_path, class: 'navbar-brand' %></li> 
                   <p class="navbar-text">
-                    Hello, <%= link_to current_user.name, edit_user_registration_path(current_user), class: 'navbar-link' %>
+                    Hello, <%= link_to current_user.name,   users_path(current_user), class: 'navbar-link' %>
                   </p>
+
                   <ul class="nav navbar-nav">
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>

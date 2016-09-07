@@ -1,5 +1,17 @@
-<div class="container">
-	<div class="circular">
-    	<%= image_tag  user_session_path(:medium), class:'img-responsive' %>       
+<div class="circular">
+    	<%= image_tag  user_path(:medium), class:'img-responsive' %>       
 	</div>
 </div>
+<% @posts = Post.all %>
+  <% @posts.each do |post| %> 
+   	<%= image_tag  post.image.url(:medium), class:'img-responsive' %>  
+ 		<br>	
+    <tr>		   
+       <td><%= post.description %></td>
+       <td><%= post.user.name %></td>
+    </tr>
+    <%= link_to 'Edit', edit_user_url(post) %>
+    <%= link_to 'Delete',  user_url(post), class: 'btn btn-success',
+                      method: :delete,
+                      data: {confirm: 'Do you want to remove this post?'} %>
+<% end %>
