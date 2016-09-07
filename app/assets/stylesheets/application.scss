@@ -28,14 +28,15 @@ body {
 
 
 .post-head {
-    flex-direction: row;
-    height: 64px;
-    padding-left: 24px;
-    padding-right: 24px;
-    padding-top: 24px;
-    color: #125688;
-    font-size: 15px;
-    line-height: 18px;
+  height: 64px;
+  padding: 14px 20px;
+  color: #125688;
+  font-size: 15px;
+  line-height: 18px;
+  .thumbnail {}
+  .name {
+    display: block;
+  }
 }
 
 .posts-wrapper {
@@ -81,15 +82,28 @@ body {
   margin-top: 20px;
   margin-bottom: 40px;
 }
-.circular {
-  width: 150px;
-  height: 150px;
-  border-radius: 150px;
-  -webkit-border-radius: 150px;
-  -moz-border-radius: 150px;
-  background: url(http://link-to-your/image.jpg) no-repeat;
-  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-  }
+
+.round-image-50 {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    text-align: center;
+    img { width: 100% }
+}
+
+.avatar-index {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    text-align: center;
+    img { width: 100% }
+}
 

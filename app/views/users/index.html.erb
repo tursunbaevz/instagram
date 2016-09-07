@@ -1,17 +1,20 @@
-<div class="circular">
-    	<%= image_tag  user_path(:medium), class:'img-responsive' %>       
-	</div>
+<div class="avatar-index">
+   <%= image_tag(current_user.avatar.url(:thumb)) %>
 </div>
+<div>
 <% @posts = Post.all %>
-  <% @posts.each do |post| %> 
-   	<%= image_tag  post.image.url(:medium), class:'img-responsive' %>  
- 		<br>	
-    <tr>		   
-       <td><%= post.description %></td>
+  <% current_user.posts.each do |post| %> 
+    <%= image_tag  post.image.url(:medium), class:'img-responsive' %>  
+    <br>  
+    <tr> 
+    <div class="name">
        <td><%= post.user.name %></td>
+    </div>
+       <td><%= post.description %></td>
     </tr>
-    <%= link_to 'Edit', edit_user_url(post) %>
     <%= link_to 'Delete',  user_url(post), class: 'btn btn-success',
                       method: :delete,
-                      data: {confirm: 'Do you want to remove this post?'} %>
-<% end %>
+                      data: {confirm: 'Do you want to remove this post?'} %>   
+  <% end %>
+</div>
+

@@ -1,14 +1,16 @@
 <% @posts.each do |post| %>
   <div class="form-wrapper">
-    <div class="posts-wrapper">
+    <div class="name">
+      <%= post.user.name %>    
+    </div>
         <div class="image center-block">  
-   		   <%= image_tag  post.image.url(:medium), class:'img-responsive' %>
-        </div>    
- 			    <br>			   
-	     </div>
-       <div class="post-description">
-        <%= post.description %>
-	     </div>
+          <%= image_tag  post.image.url(:medium), class:'img-responsive' %>
+        </div>
+          <div class="post-description">
+            <%= post.description %>
+          </div>
+      </div>   
+        <br>         
   </div>
 <% end %>
  
