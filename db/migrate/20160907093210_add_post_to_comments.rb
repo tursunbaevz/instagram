@@ -1,4 +1,4 @@
-class AddPostToComments < ActiveRecord::Migration[5.0]
+	class AddPostToComments < ActiveRecord::Migration[5.0]
   def change
     add_reference :comments, :post, foreign_key: true
   end

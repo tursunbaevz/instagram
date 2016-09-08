@@ -1,4 +1,4 @@
-class AddUsetToComments < ActiveRecord::Migration[5.0]
+class AddUserToComments < ActiveRecord::Migration[5.0]
   def change
     add_reference :comments, :user, foreign_key: true
   end

@@ -36,6 +36,7 @@ body {
   .thumbnail {}
   .name {
     display: block;
+    color: green;
   }
 }
 
@@ -103,7 +104,18 @@ body {
     height: 200px;
     width: 200px;
     overflow: hidden;
-    text-align: center;
+    text-align: justify;
+    img { width: 100% }
+}
+
+.avatar-post {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    text-align: justify;
     img { width: 100% }
 }
 

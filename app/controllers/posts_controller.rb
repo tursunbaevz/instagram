@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
   def new
   	@post = Post.new
+    @comment = Comment.new(post_id: params[:post_id])
   end
 
   def index
   	@posts = Post.all
-    @user = User.new
+    @comments = Comment.all
+    
   end
 
   def create
