@@ -1,25 +1,33 @@
-<div class="avatar-index">
-   <%= image_tag(current_user.avatar.url(:thumb)) %>
-</div>
-<div>
-    <% @posts = Post.all %>
-        <% @comments = Comment.all %>
-        <% current_user.posts.each do |post| %>   
-            <%= image_tag  post.image.url(:medium), class:'img-responsive' %>  
-            <br>  
-           <div class="name">
-            <td>
-                 <tr><%= post.user.name %></tr>
+<div class="container">
+    <div class="avatar-index">
+       <%= image_tag(current_user.avatar.url(:thumb)) %>
+    </div>
+      <% @posts = Post.all %>
+      <% @comments = Comment.all %>
+      <% current_user.posts.each do |post| %> 
+          <div class="col-xs-6 col-sm-4"> 
+                <%= image_tag  post.image.url(:medium), class:'img-responsive' %>  
+              <br>  
+              <div class="des">   
+                <%= post.description %>
               </div>
-                 <tr><%= post.description %></tr> 
-            </td> 
-             <% post.comments.each do |comment| %>
-              <b><%= comment.user.name %> </b> 
-              <p><%= comment.content %></p> 
-              <% end %>
-          </div>
-            <%= link_to 'Delete',  user_url(post), class: 'btn btn-success',
-                              method: :delete,
-                              data: {confirm: 'Do you want to remove this post?'} %>   
-        <% end %>
-  </div>
+                <% post.comments.each do |comment| %>
+                <b><%= comment.user.name %> </b> 
+                <div class="comment">
+                  <p><%= comment.content %></p>
+                </div> 
+                 <% if current_user == post.user %>
+                      <%= link_to 'Delete comment',  comment_path(comment), class: 'btn btn-success',
+                                method: :delete,
+                                data: {confirm: 'Do you want to remove this post?'} %> 
+                 <% else %>
+                  <% redirect_to user_path %>                    
+                  <% end %>
+                <% end %>
+                <%= link_to 'Delete',  user_url(post), class: 'btn btn-success',
+                                method: :delete,
+                                data: {confirm: 'Do you want to remove this post?'} %>   
+          </div> 
+      <% end %>
+</div>
+

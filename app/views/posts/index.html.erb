@@ -1,34 +1,31 @@
-
-  <% @posts.each do |post| %>
-    <div class="form-wrapper">
+<% @posts.each do |post| %>
+  <div class="form-wrapper">
       <div class="name">
         <b><%= post.user.name %></b>      
-      </div>
-      <div class="avatar-post">
-           <%= image_tag(post.user.avatar.url(:thumb)) %>
+        <div class="avatar-post">
+         <%= image_tag(post.user.avatar.url(:thumb)) %>
         </div> 
-          <div class="image center-block">  
-            <%= image_tag  post.image.url(:medium), class:'img-responsive' %>
+      </div>
+        <div class="image center-block">  
+          <%= image_tag  post.image.url(:medium), class:'img-responsive' %>
+            <%= post.description  %>
+        </div> 
+        <div class="comment">
+          <% post.comments.each do |comment| %>
+          <b><%= comment.user.name %> </b> 
+          <p><%= comment.content %></p> 
+            <% end %>
+        </div>
+          <div class="comments-form">
+            <%= render 'comments/form', post: post %>
           </div>
-            <div class="post-description">
-              <%= post.description %>
-            </div> 
-            <div class="comment">
-              <% post.comments.each do |comment| %>
-              <b><%= comment.user.name %> </b> 
-              <p><%= comment.content %></p> 
-              <% end %>
-            </div>
-            <div class="comments-form">
-              <%= render 'comments/form', post: post %>
-            </div>
 
-        </div>   
-          <br>         
-    </div>
-  <% end %>
+      </div>   
+        <br>         
+  </div>
+<% end %>
 
-   
+ 
 
 
 

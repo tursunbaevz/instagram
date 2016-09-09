@@ -12,6 +12,9 @@ body {
   }
 }
 
+ .des{
+    color: black;
+ }
 
 .navbar-default {
   background-color: #fff;
@@ -25,7 +28,18 @@ body {
   width: 640px;
   margin: 0 auto;
 }
+  
+ .comment{
+  padding: 24px 24px;
+  font-size: 15px;
+  line-height: 18px;
 
+ }
+
+ .name {
+   display: block;
+   color: green;
+ }
 
 .post-head {
   height: 64px;
@@ -36,7 +50,6 @@ body {
   .thumbnail {}
   .name {
     display: block;
-    color: green;
   }
 }
 
@@ -59,7 +72,7 @@ body {
 .image {
   border-bottom: 1px solid #eeefef;
   border-top: 1px solid #eeefef;
-  width:450px;
+  width: 100%;
 }
 
 .image img{
@@ -67,21 +80,17 @@ body {
   height: auto;
   width: 100%;
   max-height: 600px;
+  
 }
 
 
 .form-wrapper {
-  width: 60%;
+  width: 40%;
   margin: 20px auto;
   background-color: #fff;
-  padding: 40px;
+  padding: 10px;
   border: 1px solid #eeefef;
   border-radius: 3px;
-}
-
-.edit-links {
-  margin-top: 20px;
-  margin-bottom: 40px;
 }
 
 .round-image-50 {
@@ -101,10 +110,13 @@ body {
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     overflow: hidden;
     text-align: justify;
+    margin-left: 50px;
+    margin: 30px;
+
     img { width: 100% }
 }
 
@@ -115,6 +127,7 @@ body {
     height: 40px;
     width: 40px;
     overflow: hidden;
+    margin-top: 2px;
     text-align: justify;
     img { width: 100% }
 }

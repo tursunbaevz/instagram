@@ -25,8 +25,9 @@
               </ul>
               <ul class="navbar-nav navbar-right"> 
                 <% if user_signed_in? %>
-                 <li><%= link_to 'My Profile', users_path, class: 'navbar-brand' %></li> 
+                <li><%= link_to 'My Profile', users_path, class: 'navbar-brand' %></li> 
                 <li><%= link_to 'New Post', new_post_path, class: 'navbar-brand' %></li> 
+                  
                   <p class="navbar-text">
                     Hello, <%= link_to current_user.name,   users_path(current_user), class: 'navbar-link' %>
                   </p>
@@ -51,6 +52,9 @@
           </div>
         </nav>
         <div class="container">
+         <% flash.each do |name, msg| %>
+         <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+         <% end %>
 
     <%= yield %>
     </div>
