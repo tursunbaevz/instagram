@@ -1,8 +1,11 @@
-<%= form_for [post.comments.build], html: { class: 'form-horizontal', remote: true } do |f| %>
-	<%= f.hidden_field  :post_id,  value: post.id%>
-	<%=  f.text_area :content %>
+<div class="comment-form col-sm-11">
+<%= form_for([current_user, post.comments.build],  html: { class: 'form-horizontal', remote: true }) do |f| %>
+	<%= f.hidden_field  :post_id,  value: post.id %>
+	
+	<%= f.text_area :content, placeholder: "write a comment", class:"comment_content", id: "comment_content_#{post.id}"%>
 	<%= f.submit  class: 'btn-success' %>
 	<% end %>
+	</div>
 
 
  

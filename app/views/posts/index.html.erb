@@ -1,26 +1,30 @@
 <% @posts.each do |post| %>
   <div class="form-wrapper">
       <div class="name">
-        <b><%= post.user.name %></b>      
-        <div class="avatar-post">
-         <%= image_tag(post.user.avatar.url(:thumb)) %>
-        </div> 
+          <b><%= post.user.name %></b>      
+          <div class="avatar-post">
+           <%= image_tag(post.user.avatar.url(:thumb)) %>
+          </div> 
       </div>
         <div class="image center-block">  
           <%= image_tag  post.image.url(:medium), class:'img-responsive' %>
             <%= post.description  %>
         </div> 
-        <div class="comment">
-          <% post.comments.each do |comment| %>
-          <b><%= comment.user.name %> </b> 
-          <p><%= comment.content %></p> 
-            <% end %>
+        <div class="comment-content" id="comments_<%= post.id %>">
+          <ol id="dodo_<%= post.id %>">
+           <%= render post.comments, post: post %>
+          </ol>
         </div>
+            <div class="comment-like-form row">
+              <div class="col-sm-1like-button">
+                <%= link_to '', like_user_path(post.id), 
+                                              id: "like_#{post.id}",
+                                              class: "glyphicon #{liked_post post}" %>
+              </div>
+            </div>
           <div class="comments-form">
-            <%= render 'comments/form', post: post %>
-          </div>
-
-      </div>   
+            <%= render 'comments/form', comment: @comment, post: post %>
+          </div>  
         <br>         
   </div>
 <% end %>
@@ -32,4 +36,4 @@
 
 
 
-
+      

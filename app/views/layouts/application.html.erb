@@ -26,10 +26,10 @@
               <ul class="navbar-nav navbar-right"> 
                 <% if user_signed_in? %>
                 <li><%= link_to 'My Profile', users_path, class: 'navbar-brand' %></li> 
-                <li><%= link_to 'New Post', new_post_path, class: 'navbar-brand' %></li> 
+                <li><%= link_to 'New Post',  new_user_post_path(current_user), class: 'navbar-brand' %></li> 
                   
                   <p class="navbar-text">
-                    Hello, <%= link_to current_user.name,   users_path(current_user), class: 'navbar-link' %>
+                    Hello, <%= link_to current_user.name,  user_session_path(current_user), class: 'navbar-link' %>
                   </p>
                     <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
                   <ul class="nav navbar-nav">

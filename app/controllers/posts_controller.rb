@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+   skip_before_action :verify_authenticity_token
+   
   def new
   	@post = Post.new
     @comment = Comment.new(post_id: params[:post_id])
@@ -6,8 +8,8 @@ class PostsController < ApplicationController
 
   def index
   	@posts = Post.all.order(created_at: :DESC)
-    @comments = Comment.all
-    
+    @comment = Comment.new
+    @post = Post.new[:post_id]  
   end
 
   def create
@@ -18,9 +20,19 @@ class PostsController < ApplicationController
   	else	 
       flash.now[:alert] = "Your new post couldn't be created!  Please check the form."
   		render :new
-  	end
-  	
+    end
   end
+
+
+    def destroy
+      @post = Post.find_by(params[:id])
+        @comment = Comment.find_by(params[:id])
+        @comment.destroy
+        redirect_to root_path
+    end
+
+  	
+  
   private
   def post_params
     params.require(:post).permit(:description, :image, :user_id, :comment_id)
